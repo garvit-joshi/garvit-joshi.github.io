@@ -112,7 +112,8 @@ code {
 	left: -219px;
 	top: 50%;
 	z-index: 1;
-	transform: translateY(-50%)
+	transform: translateY(-50%);
+	max-width: 680px
 }
 
 li {
@@ -200,9 +201,10 @@ div.user>div:first-child {
 
 .repoCard {
 	box-sizing: border-box;
-	display: block;
+	display: flex;
+	flex-direction: column;
 	border-radius: 4px;
-	padding: 20px;
+	padding: 20px 20px 12px;
 	background-color: rgba(22, 24, 38, .4);
 	position: relative;
 	transition: all .2s ease-in-out
@@ -215,15 +217,16 @@ div.user>div:first-child {
 	color: #000;
 	border-radius: 2px;
 	padding: 4px 6px;
-	position: absolute;
-	bottom: 15px;
-	overflow-wrap: break-word
+	overflow-wrap: break-word;
+	margin: 0 8px 8px 0;
+	display: inline-flex
 }
 
 .repoCard p {
 	padding-bottom: 15px;
-	color: rgba(198, 201, 207, .5);
-	overflow-wrap: break-word
+	color: rgba(198, 201, 207, .7);
+	overflow-wrap: break-word;
+	flex: 1 1
 }
 
 .repoCard .repoTitle {
