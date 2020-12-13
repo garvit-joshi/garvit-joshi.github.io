@@ -137,15 +137,16 @@ a {
 
 .button {
 	display: inline-block;
-	background-color: #d61252;
-	color: #f0f0f0;
+	background-color: #f5ebee;
+	color: #0e0d0d;
 	padding: 10px 15px;
 	border-radius: 5px;
 	transition: all .3s ease-in-out
 }
 
 .button:hover {
-	background-color: rgba(214, 18, 82, .5)
+	background-color: #0f0e0e;
+	color: #f5ebee
 }
 
 input[type=text] {
