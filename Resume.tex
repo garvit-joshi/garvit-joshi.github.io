@@ -1,0 +1,140 @@
+\documentclass[a4paper]{article}
+    \usepackage{fullpage}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{hyperref}
+    \usepackage{textcomp}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \textheight=10in
+    \pagestyle{empty}
+    \raggedright
+    \usepackage[left=0.8in,right=0.8in,bottom=0.8in,top=0.8in]{geometry}
+
+    %\renewcommand{\encodingdefault}{cg}
+%\renewcommand{\rmdefault}{lgrcmr}
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\area} [2] {
+    \vspace*{-9pt}
+    \begin{verse}
+        \textbf{#1}   #2
+    \end{verse}
+}
+
+\newcommand{\lineunder} {
+    \vspace*{-8pt} \\
+    \hspace*{-18pt} \hrulefill \\
+}
+
+\newcommand{\header} [1] {
+    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+    \vspace*{-6pt} \lineunder
+}
+
+\newcommand{\employer} [3] {
+    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
+}
+
+\newcommand{\contact} [3] {
+    \vspace*{-10pt}
+    \begin{center}
+        {\Huge \scshape {#1}}\\
+        #2 \\ #3
+    \end{center}
+    \vspace*{-8pt}
+}
+
+\newenvironment{achievements}{
+    \begin{list}
+        {$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}
+    \end{list}
+}
+
+\newcommand{\schoolwithcourses} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+    \vspace*{5pt}
+}
+
+\newcommand{\school} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+}
+% END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{document}
+\vspace*{-40pt}
+
+    
+
+%==== Profile ====%
+\vspace*{-10pt}
+\begin{center}
+	{\Huge \scshape {Garvit Joshi}}\\
+	Bengaluru $\cdot$ \href{mailto:garvitjoshi9@gmail.com}{garvitjoshi9@gmail.com} $\cdot$ \href{tel:7983856395}{7983856395} $\cdot$ \href{https://garvit-joshi.github.io}{Portfolio}\\
+\end{center}
+
+%==== Education ====%
+\header{Education}
+\textbf{Lovely Professional University}\hfill Jalandhar, Punjab\\
+Bachelor of Technology Computer Science, \textit{GPA: 7.77} \hfill Aug 2018 - Jul 2022\\
+\vspace{2mm}
+\textbf{St. Anthony Sr. Sec. School}\hfill Fatehgarh, Uttar Pradesh\\
+XII, Physics, Chemistry, Maths, Computer Science \textit{Percentage: 66.6\%} \hfill May 2017 - Jun 2018\\
+\vspace{2mm}
+\textbf{St. Thresa Sr. Sec. School}\hfill Nainital, Uttarakhand\\
+X, \textit{Percentage: 68.4} \hfill May 2015 - Jun 2016\\
+\vspace{2mm}
+
+%==== Experience ====%
+\header{Work Experience}
+\vspace{1mm}
+
+\textbf{MoveInSync} \hfill Bengaluru, Karnataka\\
+\textit{Software Engineer} \hfill Oct 2021 - Apr 2022\\
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+	\item Contributed to the Vehicle Optimization team, automating employee commute to the office while maximizing cab utilization.
+	\item Collaborated on automating point of interest setup for new clients, streamlining onboarding processes and enhancing client satisfaction.
+	\item Implemented a dynamic employee scheduling solution utilizing a genetic algorithm to optimize workforce allocation for clients, effectively reducing mobility costs.
+	\item Collaborated on developing a Configuration Service allowing clients to select routing algorithms for employee management.
+\end{itemize}
+\textbf{MoveInSync} \hfill Bengaluru, Karnataka\\
+\textit{Software Engineer-Intern} \hfill May 2022 - Present\\
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+	\item Enhanced UI Automation Suite, elevating pass rates from 40\% to 75\%.
+	\item Integrated JPA and In-Memory Caching into microservices, boosting application stability by 5\% and improving performance by up to 30\%.
+\end{itemize}
+
+\header{Skills}
+\begin{tabular}{ l l }
+	AWS:         & AWS S3, EC2, Route 53, AWS SDK V2 for java                                \\
+	Java:        & Java 8 - 21, Virtual Threads, Thread Pool Executors, Reactive Programming \\
+	Spring Boot: & Spring Data JPA, Spring Security, jOOQ, Spring Reactive Web, JDBC         \\
+    Systems:     & Redis, Apache Kafka, Amazon Redshift, Amazon DynamoDB                     \\
+\end{tabular}
+\vspace{2mm}
+
+\header{Projects}
+{\textbf{Mailing Service}} {\sl Java, Spring Boot 3.0} \hfill \href{https://github.com/AWS-Cloud-Community-LPU/mailing-service}{GitHub}\\
+Founded and led AWS Cloud Community-LPU during college, creating an official mailing engine and registration system to enhance communication and event coordination, leveraging AWS cloud services, and achieving measurable community growth and engagement.\\
+\vspace*{2mm}
+{\textbf{Redux}} {\sl C++ 11, CMake} \hfill \href{https://github.com/garvit-joshi/Redux}{GitHub}\\
+Developed a C++ cross-platform application to securely store user data with AES 256-bit encryption.\\
+\vspace*{2mm}
+{\textbf{Ada}} {\sl Python, RSS Feed parser} \hfill \href{https://github.com/AWS-Cloud-Community-LPU/Ada\_TelegramBot}{GitHub}\\
+A Telegram bot hosted on AWS EC2 that broadcasts AWS Infrastructure news from the official AWS RSS feed to a Telegram group, featuring caching and logging functionalities for enhanced performance and monitoring.\\
+\vspace*{2mm}
+{\textbf{Bhagavad Gita}} {\sl Laravel, PHP, PostgreSQL} \hfill \href{https://github.com/garvit-joshi/Bhagavad-Gita}{GitHub}\\
+Designed and developed a comprehensive Laravel project encompassing both frontend and backend components, utilizing a PostgreSQL database\\
+\vspace*{2mm}
+
+
+
+\ 
+\end{document}

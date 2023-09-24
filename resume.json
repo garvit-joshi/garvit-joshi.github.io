@@ -1,0 +1,159 @@
+{
+  "selectedTemplate": 1,
+  "headings": {
+    "education": "Education",
+    "work": "Work Experience",
+    "skills": "Skills",
+    "projects": "Projects"
+  },
+  "basics": {
+    "name": "Garvit Joshi",
+    "email": "garvitjoshi9@gmail.com",
+    "phone": "7983856395",
+    "location": {
+      "address": "Bengaluru"
+    },
+    "website": "https://garvit-joshi.github.io"
+  },
+  "education": [
+    {
+      "area": "Computer Science",
+      "gpa": "7.77",
+      "institution": "Lovely Professional University",
+      "location": "Jalandhar, Punjab",
+      "studyType": "Bachelor of Technology",
+      "startDate": "Aug 2018",
+      "endDate": "Jul 2022"
+    },
+    {
+      "institution": "St. Anthony Sr. Sec. School",
+      "location": "Fatehgarh, Uttar Pradesh",
+      "studyType": "XII",
+      "area": "Physics, Chemistry, Maths, Computer Science",
+      "gpa": "66.6%",
+      "endDate": "Jun 2018",
+      "startDate": "May 2017"
+    },
+    {
+      "institution": "St. Thresa Sr. Sec. School",
+      "location": "Nainital, Uttarakhand",
+      "studyType": "X",
+      "gpa": "68.4",
+      "startDate": "May 2015",
+      "endDate": "Jun 2016"
+    }
+  ],
+  "work": [
+    {
+      "company": "MoveInSync",
+      "location": "Bengaluru, Karnataka",
+      "position": "Software Engineer",
+      "website": "",
+      "highlights": [
+        "Contributed to the Vehicle Optimization team, automating employee commute to the office while maximizing cab utilization.",
+        "Collaborated on automating point of interest setup for new clients, streamlining onboarding processes and enhancing client satisfaction.",
+        "Implemented a dynamic employee scheduling solution utilizing a genetic algorithm to optimize workforce allocation for clients, effectively reducing mobility costs.",
+        "Collaborated on developing a Configuration Service allowing clients to select routing algorithms for employee management."
+      ],
+      "startDate": "Oct 2021",
+      "endDate": "Apr 2022"
+    },
+    {
+      "highlights": [
+        "Enhanced UI Automation Suite, elevating pass rates from 40% to 75%.",
+        "Integrated JPA and In-Memory Caching into microservices, boosting application stability by 5% and improving performance by up to 30%."
+      ],
+      "company": "MoveInSync",
+      "position": "Software Engineer-Intern",
+      "location": "Bengaluru, Karnataka",
+      "startDate": "May 2022",
+      "endDate": "Present"
+    }
+  ],
+  "skills": [
+    {
+      "level": "",
+      "keywords": [
+        "AWS S3",
+        "EC2",
+        "Route 53",
+        "AWS SDK V2 for java"
+      ],
+      "name": "AWS"
+    },
+    {
+      "keywords": [
+        "Java 8 - 21",
+        "Virtual Threads",
+        "Thread Pool Executors",
+        "Reactive Programming"
+      ],
+      "name": "Java"
+    },
+    {
+      "keywords": [
+        "Spring Data JPA",
+        "Spring Security",
+        "jOOQ",
+        "Spring Reactive Web"
+      ],
+      "name": "Spring Boot"
+    }
+  ],
+  "projects": [
+    {
+      "url": "https://github.com/AWS-Cloud-Community-LPU/mailing-service",
+      "keywords": [
+        "Java",
+        "Spring Boot 3.0"
+      ],
+      "name": "Mailing Service",
+      "description": "Founded and led AWS Cloud Community-LPU during college, creating an official mailing engine and registration system to enhance communication and event coordination, leveraging AWS cloud services, and achieving measurable community growth and engagement."
+    },
+    {
+      "keywords": [
+        "C++ 11",
+        "CMake"
+      ],
+      "name": "Redux",
+      "description": "Developed a C++ cross-platform application to securely store user data with AES 256-bit encryption.",
+      "url": "https://github.com/garvit-joshi/Redux"
+    },
+    {
+      "keywords": [
+        "Python",
+        "RSS Feed parser"
+      ],
+      "name": "Ada",
+      "description": "A Telegram bot hosted on AWS EC2 that broadcasts AWS Infrastructure news from the official AWS RSS feed to a Telegram group, featuring caching and logging functionalities for enhanced performance and monitoring.",
+      "url": "https://github.com/AWS-Cloud-Community-LPU/Ada_TelegramBot"
+    },
+    {
+      "keywords": [
+        "Laravel",
+        "PHP",
+        "PostgreSQL"
+      ],
+      "name": "Bhagavad Gita",
+      "url": "https://github.com/garvit-joshi/Bhagavad-Gita",
+      "description": "Designed and developed a comprehensive Laravel project encompassing both frontend and backend components, utilizing a PostgreSQL database"
+    }
+  ],
+  "awards": [
+    {
+      "title": "",
+      "date": "",
+      "awarder": "",
+      "summary": ""
+    }
+  ],
+  "sections": [
+    "templates",
+    "profile",
+    "education",
+    "work",
+    "skills",
+    "projects",
+    "awards"
+  ]
+}
