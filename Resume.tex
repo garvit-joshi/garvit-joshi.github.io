@@ -80,19 +80,13 @@
 	\href{https://garvit-joshi.github.io}{Portfolio} $\cdot$ \href{https://www.linkedin.com/in/garvitjoshi9/}{LinkedIn} $\cdot$ \href{https://github.com/garvit-joshi/}{GitHub}\\
 \end{center}
 
-\header{Professional Summary}
-Software Engineer with 3+ years developing scalable Java applications and microservices. Experienced in performance optimization, system design, and agile software delivery.
-
-%==== Skills ====%
 \header{Technical Skills}
 \begin{tabular}{ l l }
-	Programming Languages: & Java (8-21), SQL, JavaScript, Python \\
-	Frameworks \& Libraries: & Spring Boot, Spring Data JPA, Spring Security, Spring WebFlux, jOOQ, JDBC \\
-	Cloud \& DevOps: & AWS (S3, EC2, Route 53, SDK), Docker, Kubernetes, CI/CD, Git \\
-	Databases: & PostgreSQL, MySQL, Amazon Redshift, Amazon DynamoDB, Redis, Neo4j \\
-	Message Brokers: & Apache Kafka, RabbitMQ \\
-	Tools \& Technologies: & Virtual Threads, Thread Pool Executors, Reactive Programming, Keycloak \\
-	Methodologies: & Agile, Scrum, Test-Driven Development (TDD), RESTful APIs \\
+	Languages: & Java (8--21), SQL, Python, JavaScript \\
+	Frameworks: & Spring Boot, Spring Security, Spring Data JPA, Spring WebFlux, jOOQ, JDBC \\
+	Databases: & PostgreSQL, MySQL, Redis, Neo4j, Amazon Redshift, DynamoDB \\
+	Infrastructure: & AWS (S3, EC2, Route 53, SES), Docker, Kubernetes, Apache Kafka, RabbitMQ \\
+	Other: & Virtual Threads, Reactive Programming, Keycloak, CI/CD, Git \\
 \end{tabular}
 \vspace{0mm}
 
@@ -101,67 +95,74 @@ Software Engineer with 3+ years developing scalable Java applications and micros
 \vspace{0mm}
 
 \textbf{MoveInSync} \hfill Bengaluru, Karnataka\\
-\textit{Software Engineer 2} \hfill April 2024 - Present\\
+\textit{Software Engineer 2} \hfill April 2024 -- Present\\
 \vspace{-1mm}
 \begin{itemize} \itemsep -2pt
-    \item Optimized routing algorithms achieving 40\% improvement in computational efficiency through performance profiling
-    \item Reduced customer support tickets by 23\% through automated error detection
-    \item Applied Neo4j graph database for geocode storage, reducing query time by 35\%
-    \item Collaborated with cross-functional teams to deliver 5 major feature releases on schedule
+    \item Own routing and trip optimization services that allocate vehicles for employee transportation across multiple clients
+    \item Introduced Neo4j for geocode storage, replacing relational lookups for geospatial route data
+    \item Built automated error detection pipelines that surface issues before they become support tickets
+    \item Profile and optimize routing algorithms; identified and fixed bottlenecks in the trip assignment path
 \end{itemize}
 
-\textit{Software Engineer} \hfill May 2022 - March 2024\\
+\textit{Software Engineer} \hfill May 2022 -- March 2024\\
 \vspace{-1mm}
 \begin{itemize} \itemsep -2pt
-	\item Developed vehicle optimization algorithms for employee transportation, increasing capacity utilization by 30\%
-    \item Streamlined POI setup for client onboarding, reducing setup time from 2 days to hours
-	\item Built employee scheduling system using genetic algorithms, reducing costs by 25\%
-    \item Created Configuration Service for customizable routing algorithms, improving client satisfaction by 15\%
-    \item Built RESTful APIs for route optimization and employee scheduling services, maintaining 99.99\% uptime
-    \item Integrated Redis caching layer improving API response time by 40\%
+    \item Built vehicle optimization algorithms that pack employees into trips based on routes, capacity, and time windows
+    \item Designed employee scheduling system using genetic algorithms to minimize transportation cost
+    \item Streamlined POI (point of interest) setup for client onboarding, replacing a multi-day manual process
+    \item Created a Configuration Service allowing clients to customize routing parameters without code changes
+    \item Added Redis caching layer to reduce database load on frequently queried route and schedule data
 \end{itemize}
 
-\textit{Software Engineer Intern} \hfill October 2021 - April 2022\\
+\textit{Software Engineer Intern} \hfill October 2021 -- April 2022\\
 \vspace{-1mm}
 \begin{itemize} \itemsep -2pt
-	\item Enhanced UI test automation, increasing coverage from 40\% to 75\% and reducing regression testing by 50\%
-	\item Integrated JPA and executed caching strategies, improving performance by 30\% and stability by 5\%
-    \item Created automated deployment scripts reducing deployment time from 2 hours to 15 minutes
+    \item Expanded UI test automation coverage and reduced manual regression testing effort
+    \item Migrated data access layer to Spring Data JPA and introduced query-level caching
+    \item Wrote deployment automation scripts to replace a manual multi-step deployment process
 \end{itemize}
+
+%==== Open Source ====%
+\header{Open Source Contributions}
+\vspace{1mm}
+\textbf{Spring Security} \hfill \href{https://github.com/spring-projects/spring-security/pull/18235}{PR \#18235 -- Merged}\\
+Fixed thread-safety bug in Compromised Password Checker by creating a new SHA-1 MessageDigest per request instead of reusing a shared instance\\
+\vspace{1mm}
+\textbf{Spring Boot} \hfill \href{https://github.com/spring-projects/spring-boot/pull/48967}{PR \#48967 -- Merged}\\
+Added truststore certificate exposure in the SSL info actuator endpoint; handled both PrivateKeyEntry and TrustedCertificateEntry types\\
+\vspace{1mm}
+
+%==== Projects ====%
+\header{Projects}
+{\textbf{Locksmith}} {\sl Java 17+, Spring Boot, Redis, Redisson, AspectJ} \hfill \href{https://github.com/riido-git/locksmith}{GitHub} $\cdot$ \href{https://central.sonatype.com/artifact/in.riido/locksmith-spring-boot-starter}{Maven Central}\\
+Spring Boot starter for Redis-based distributed coordination, published on Maven Central
+\begin{itemize} \itemsep -2pt
+    \item Provides \texttt{@DistributedLock}, \texttt{@DistributedSemaphore}, and \texttt{@RateLimit} annotations
+    \item Uses AspectJ for annotation-driven locking with configurable timeouts and key expressions via SpEL
+\end{itemize}
+\vspace*{1mm}
+
+{\textbf{Vault}} {\sl Java 21, Spring Boot, jOOQ, PostgreSQL, Kafka} \hfill \href{https://github.com/student-flow/vault}{GitHub}\\
+Multi-tenant configuration management service with typed properties and audit history
+\begin{itemize} \itemsep -2pt
+    \item Stores and serves typed configurations (string, int, boolean, list) per service and tenant
+    \item Publishes configuration change events to Kafka for downstream audit and replay
+\end{itemize}
+\vspace*{1mm}
 
 %==== Education ====%
 \header{Education}
 \vspace{1mm}
 
 \textbf{Lovely Professional University} \hfill Jalandhar, Punjab\\
-Bachelor of Technology in Computer Science \hfill August 2018 - July 2022\\
+Bachelor of Technology in Computer Science \hfill August 2018 -- July 2022\\
 GPA: 7.77/10.0\\
-Relevant Coursework: Data Structures, Algorithms, Database Management Systems, Operating Systems, Software Engineering\\
 \vspace{1mm}
 
-\header{Projects}
-{\textbf{Mailing Service}} {\sl Java 17, Spring Boot 3.x, AWS SES, PostgreSQL} \hfill \href{https://github.com/AWS-Cloud-Community-LPU/mailing-service}{GitHub}\\
-Built email automation system for AWS Cloud Community-LPU serving 200+ members
+\header{Community}
 \begin{itemize} \itemsep -2pt
-    \item Applied email automation using AWS SES, reducing manual communication effort by 80\%
-    \item Designed registration system handling 1000+ concurrent users
-\end{itemize}
-\vspace*{1mm}
-
-{\textbf{Iron Hide - Auditing Service}} {\sl Java 21, Spring Boot 3.x, PostgreSQL, Virtual Threads, Kafka} \hfill \href{https://github.com/garvit-joshi/ironhide}{GitHub}\\
-Developed enterprise auditing service with Kafka and REST API integration
-\begin{itemize} \itemsep -2pt
-    \item Utilized Java 21 virtual threads achieving 3x performance improvement
-    \item Built event-driven architecture processing 100,000+ audit events per hour
-    \item Enforced logging and monitoring dashboard using Spring Boot Actuator
-\end{itemize}
-\vspace*{1mm}
-
-\header{Certifications \& Achievements}
-\begin{itemize} \itemsep -2pt
-    \item Founded and led AWS Cloud Community-LPU with 200+ active members
-    \item Conducted 5+ technical workshops on cloud computing and Java development
-    \item Contributed to open-source projects and maintained high code quality standards
+    \item Co-founded AWS Cloud Community-LPU; organized workshops on cloud computing and Java development
+    \item Built the community's mailing service and registration tooling used for events with 200+ attendees
 \end{itemize}
 
 \ 

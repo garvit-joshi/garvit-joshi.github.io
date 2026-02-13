@@ -1,131 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <link rel="icon" href="images/Fevicon.jpeg" type="image/icon type">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
-      <title>Garvit Joshi | Portfolio</title>
-      <link href="/css/Main.css" rel="stylesheet">
-   </head>
-   <body>
-      <div id="root">
-         <div class="container">
-            <div class="sidebar user">
-               <div>
-                  <div class="avatar shine"><img src="https://res.cloudinary.com/garvitjoshi9/image/upload/v1594407409/Git-Hub/1_4_ebmyhb.jpg" class="profile" alt=""></div>
-                  <h1>Garvit Joshi</h1>
-                  <p>To find out who I am, look at the source code.</p>
-                  <form method="get" action="Resume.pdf">
-                     <button type="submit" class="button">Resume</button>
-                  </form>
-               </div>
-               <div>
-                  <h3>Skills:</h3>
-                  <div class="skills">
-                     <span>AWS</span>
-                     <span>Linux</span>
-                     <span>Python</span>
-                     <span>Java</span>
-                     <span>C</span>
-                     <span>C++</span>
-                     <span>CMake</span>
-                     <span>SQL</span>
-                     <span>Batch/Shell</span>
-                     <span>HTML</span>
-                     <span>CSS</span>
-                     <span>JavaScript</span>
-                     <span>Node</span>
-                     <span>Django</span>
-                     <span>PHP</span>
-                     <span>Laravel</span>
-                     <span>Blade</span>
-                  </div>
-               </div>
-               <div class="details">
-                  <div><i class="fab fa-github-alt"></i><a href="https://github.com/garvit-joshi" target="_blank" rel="noopener noreferrer" style="color: inherit;">@garvit-joshi</a></div>
-                  <div><i class="fas fa-building"></i>Lovely Professional University</div>
-                  <div><i class="fab fa-microsoft"></i>Microsoft Learn Student Ambassadors</div>
-                  <div><i class="fab fa-aws"></i>AWS Cloud Community-LPU</div>
-                  <div><i class="fas fa-map-marker-alt"></i>Phagwara, Punjab</div>
-               </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garvit Joshi | Software Engineer</title>
+    <meta name="description" content="Software Engineer building routing and optimization systems. Open source contributor to Spring Security & Spring Boot.">
+    <meta property="og:title" content="Garvit Joshi | Software Engineer">
+    <meta property="og:description" content="Building routing and optimization systems at MoveInSync. Open source contributor to Spring Security & Spring Boot.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://garvit-joshi.github.io">
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="/css/Main.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">GJ</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#opensource">Open Source</a>
+                <a href="#projects">Projects</a>
+                <a href="Resume.pdf" class="nav-resume">Resume</a>
             </div>
-            <div class="main">
-               <h1>Repositories</h1>
-               <div class="repoContainer">
-                  <a href="https://github.com/garvit-joshi/Redux" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">Redux</div>
-                     <p>A cross-platform Application for storing User-Data(With Encryption).</p>
-                     <div><span>C++</span><span>CMake</span><span>C</span></div>
-                  </a>
-                  <a href="https://github.com/AWS-Cloud-Community-LPU/Twitter-Bot" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">Twitter-Bot</div>
-                     <p>Official Twitter Bot for AWS Cloud Community LPU</p>
-                     <div><span>Python</span><span>Twitter</span></div>
-                  </a>
-                  <a href="https://github.com/AWS-Cloud-Community-LPU/mailing-service.git" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">mailing-service</div>
-                     <p>Official Mailing Engine for AWS Cloud Community-LPU</p>
-                     <div><span>Java</span><span>Spring Boot</span><span>Caching</span></div>
-                  </a>
-                  <a href="https://github.com/garvit-joshi/Aster_TelegramBot" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">Aster TelegramBot</div>
-                     <p>Aster - A Telegram Bot for WazirX Crypto Exchange Analysis</p>
-                     <div><span>Python</span><span>Telegram</span><span>Cryptocurrency</span></div>
-                  </a>
-                  <a href="https://github.com/garvit-joshi/Competitive-Programming" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">Competitive-Programming</div>
-                     <p>Coding Practices On Platforms</p>
-                     <div><span>Python</span><span>C++</span></div>
-                  </a>
-                  <a href="https://github.com/garvit-joshi/Java_Executor-Linux" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">Java_Executor-Linux</div>
-                     <p>Java Executor Support for Linux</p>
-                     <div><span>Python</span><span>Shell</span></div>
-                  </a>
-                  <a href="https://github.com/garvit-joshi/Learn_Java" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">Learn_Java</div>
-                     <p>A Simple Repository To Learn Java</p>
-                     <div><span>Java</span><span>Python</span></div>
-                  </a>
-                  <a href="https://github.com/garvit-joshi/Make_My_Trip.cpp" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">Make_My_Trip.cpp</div>
-                     <p>This Project Works Under Object-Oriented-Programming,File-Stream(Three Files) and Has Additional Features Like Login , SignUp</p>
-                     <div><span>C++</span></div>
-                  </a>
-                  <a href="https://github.com/garvit-joshi/Password-Store" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">Password-Store</div>
-                     <p>Saves your password with cryptography so only you can decode it.</p>
-                     <div><span>Python</span><span>C++</span></div>
-                  </a>
-                  <a href="https://github.com/garvit-joshi/Java_Executor-Windows" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">Java_Executor-Windows</div>
-                     <p>A Simple Java Executor For Making Java Files Compiled And Interpret .class Files. (With Notepad++ Support)</p>
-                     <div><span>Batchfile</span><span>Python</span></div>
-                  </a>
-                  <a href="https://github.com/garvit-joshi/INT-219-Project" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">INT-219-Project</div>
-                     <p>INT 219 Project Consisting Three Question</p>
-                     <div><span>HTML</span><span>CSS</span></div>
-                  </a>
-                  <a href="https://github.com/garvit-joshi/PwdStore" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">PwdStore</div>
-                     <p>PyPi Repository for saving your passwords in AES-256CBC Encryption.</p>
-                     <div><span>Python</span></div>
-                  </a>
-                  <a href="https://github.com/garvit-joshi/SJF_Scheduling" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">SJF_Scheduling</div>
-                     <p>This is a modified SJF Scheduling Algorithm</p>
-                     <div><span>C++</span></div>
-                  </a>
-                  <a href="https://github.com/garvit-joshi/OS_Scheduling" class="repoCard" target="_blank" rel="noopener noreferrer">
-                     <div class="repoTitle">OS_Scheduling</div>
-                     <p>My Operating System Assignment</p>
-                     <div><span>C++</span></div>
-                  </a>
-               </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+        </div>
+        <div class="hero-content">
+            <img src="https://avatars.githubusercontent.com/u/55401175?v=4" alt="Garvit Joshi" class="hero-avatar fade-in">
+            <h1 class="hero-name fade-in delay-1">Garvit Joshi</h1>
+            <h2 class="hero-title fade-in delay-2">Software Engineer</h2>
+            <p class="hero-bio fade-in delay-3">
+                I build routing and optimization systems at <strong>MoveInSync</strong>
+                and contribute to <strong>Spring Security</strong> &amp; <strong>Spring Boot</strong>.
+                Drawn to systems where every millisecond matters. Open to opportunities.
+            </p>
+            <div class="hero-links fade-in delay-4">
+                <a href="https://github.com/garvit-joshi/" target="_blank" rel="noopener noreferrer" class="hero-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/garvitjoshi9/" target="_blank" rel="noopener noreferrer" class="hero-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="mailto:garvitjoshi9@gmail.com" class="hero-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+                    Email
+                </a>
+                <a href="Resume.pdf" class="hero-link hero-link-accent">
+                    Resume
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
             </div>
-         </div>
-      </div>
-   </body>
+        </div>
+        <a href="#experience" class="scroll-indicator fade-in delay-5" aria-label="Scroll down">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <div class="section-inner">
+            <h2 class="section-title reveal">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot active"></div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Software Engineer 2</h3>
+                                <p class="timeline-company">MoveInSync &middot; Bengaluru</p>
+                            </div>
+                            <span class="timeline-date">Apr 2024 &mdash; Present</span>
+                        </div>
+                        <ul>
+                            <li>Own routing and trip optimization services that allocate vehicles for employee transportation across multiple clients</li>
+                            <li>Introduced Neo4j for geocode storage, replacing relational lookups for geospatial route data</li>
+                            <li>Built automated error detection pipelines that surface issues before they become support tickets</li>
+                            <li>Profile and optimize routing algorithms; identified and fixed bottlenecks in the trip assignment path</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Software Engineer</h3>
+                                <p class="timeline-company">MoveInSync &middot; Bengaluru</p>
+                            </div>
+                            <span class="timeline-date">May 2022 &mdash; Mar 2024</span>
+                        </div>
+                        <ul>
+                            <li>Built vehicle optimization algorithms that pack employees into trips based on routes, capacity, and time windows</li>
+                            <li>Designed employee scheduling system using genetic algorithms to minimize transportation cost</li>
+                            <li>Streamlined POI (point of interest) setup for client onboarding, replacing a multi-day manual process</li>
+                            <li>Created a Configuration Service allowing clients to customize routing parameters without code changes</li>
+                            <li>Added Redis caching layer to reduce database load on frequently queried route and schedule data</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Software Engineer Intern</h3>
+                                <p class="timeline-company">MoveInSync &middot; Bengaluru</p>
+                            </div>
+                            <span class="timeline-date">Oct 2021 &mdash; Apr 2022</span>
+                        </div>
+                        <ul>
+                            <li>Expanded UI test automation coverage and reduced manual regression testing effort</li>
+                            <li>Migrated data access layer to Spring Data JPA and introduced query-level caching</li>
+                            <li>Wrote deployment automation scripts to replace a manual multi-step deployment process</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="section-inner">
+            <h2 class="section-title reveal">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card reveal">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span>Java (8&ndash;21)</span>
+                        <span>SQL</span>
+                        <span>Python</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal">
+                    <h3>Frameworks</h3>
+                    <div class="skill-tags">
+                        <span>Spring Boot</span>
+                        <span>Spring Security</span>
+                        <span>Spring Data JPA</span>
+                        <span>Spring WebFlux</span>
+                        <span>jOOQ</span>
+                        <span>JDBC</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal">
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <span>PostgreSQL</span>
+                        <span>MySQL</span>
+                        <span>Redis</span>
+                        <span>Neo4j</span>
+                        <span>Amazon Redshift</span>
+                        <span>DynamoDB</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal">
+                    <h3>Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span>AWS</span>
+                        <span>Docker</span>
+                        <span>Kubernetes</span>
+                        <span>Apache Kafka</span>
+                        <span>RabbitMQ</span>
+                        <span>CI/CD</span>
+                        <span>Git</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal">
+                    <h3>Concepts</h3>
+                    <div class="skill-tags">
+                        <span>Virtual Threads</span>
+                        <span>Reactive Programming</span>
+                        <span>Keycloak</span>
+                        <span>Distributed Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Source -->
+    <section id="opensource">
+        <div class="section-inner">
+            <h2 class="section-title reveal">Open Source</h2>
+            <div class="oss-grid">
+                <div class="oss-card reveal">
+                    <div class="oss-header">
+                        <h3>Spring Security</h3>
+                        <span class="badge badge-merged">Merged</span>
+                    </div>
+                    <p class="oss-pr">PR #18235</p>
+                    <p class="oss-desc">Fixed thread-safety bug in Compromised Password Checker by creating a new SHA-1 MessageDigest per request instead of reusing a shared instance</p>
+                    <a href="https://github.com/spring-projects/spring-security/pull/18235" target="_blank" rel="noopener noreferrer" class="card-link">
+                        View Pull Request
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                </div>
+                <div class="oss-card reveal">
+                    <div class="oss-header">
+                        <h3>Spring Boot</h3>
+                        <span class="badge badge-merged">Merged</span>
+                    </div>
+                    <p class="oss-pr">PR #48967</p>
+                    <p class="oss-desc">Added truststore certificate exposure in the SSL info actuator endpoint; handled both PrivateKeyEntry and TrustedCertificateEntry types</p>
+                    <a href="https://github.com/spring-projects/spring-boot/pull/48967" target="_blank" rel="noopener noreferrer" class="card-link">
+                        View Pull Request
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="section-inner">
+            <h2 class="section-title reveal">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <h3>Locksmith</h3>
+                    <div class="project-tech">
+                        <span>Java 17+</span>
+                        <span>Spring Boot</span>
+                        <span>Redis</span>
+                        <span>Redisson</span>
+                        <span>AspectJ</span>
+                    </div>
+                    <p>Spring Boot starter for Redis-based distributed coordination, published on Maven Central</p>
+                    <ul>
+                        <li>Provides <code>@DistributedLock</code>, <code>@DistributedSemaphore</code>, and <code>@RateLimit</code> annotations</li>
+                        <li>Uses AspectJ for annotation-driven locking with configurable timeouts and key expressions via SpEL</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/riido-git/locksmith" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                        <a href="https://central.sonatype.com/artifact/in.riido/locksmith-spring-boot-starter" target="_blank" rel="noopener noreferrer" class="card-link">
+                            Maven Central
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <h3>Vault</h3>
+                    <div class="project-tech">
+                        <span>Java 21</span>
+                        <span>Spring Boot</span>
+                        <span>jOOQ</span>
+                        <span>PostgreSQL</span>
+                        <span>Kafka</span>
+                    </div>
+                    <p>Multi-tenant configuration management service with typed properties and audit history</p>
+                    <ul>
+                        <li>Stores and serves typed configurations (string, int, boolean, list) per service and tenant</li>
+                        <li>Publishes configuration change events to Kafka for downstream audit and replay</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/student-flow/vault" target="_blank" rel="noopener noreferrer" class="card-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="section-inner">
+            <div class="footer-content reveal">
+                <h2>Let's connect</h2>
+                <a href="mailto:garvitjoshi9@gmail.com" class="footer-email">garvitjoshi9@gmail.com</a>
+                <div class="footer-links">
+                    <a href="https://github.com/garvit-joshi/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/garvitjoshi9/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:garvitjoshi9@gmail.com">Email</a>
+                    <a href="Resume.pdf">Resume</a>
+                </div>
+            </div>
+            <div class="footer-bottom reveal">
+                <div class="footer-info">
+                    <p>BTech CS &middot; Lovely Professional University &middot; 2018&ndash;2022</p>
+                    <p>Co-founded AWS Cloud Community-LPU</p>
+                </div>
+                <p class="footer-copy">&copy; 2026 Garvit Joshi</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Scroll-triggered reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.transitionDelay = `${i * 0.05}s`;
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Nav background on scroll
+        const nav = document.getElementById('navbar');
+        const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Mobile menu
+        const toggle = document.querySelector('.nav-toggle');
+        const links = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            links.classList.toggle('open');
+            document.body.classList.toggle('menu-open');
+        });
+        links.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggle.classList.remove('active');
+                links.classList.remove('open');
+                document.body.classList.remove('menu-open');
+            });
+        });
+
+        // Hero mouse-tracking glow
+        const hero = document.getElementById('hero');
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            hero.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            hero.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+
+        // Active nav link highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+        const highlightNav = () => {
+            const scrollY = window.scrollY + 100;
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+                const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+                if (link) {
+                    link.classList.toggle('active', scrollY >= top && scrollY < top + height);
+                }
+            });
+        };
+        window.addEventListener('scroll', highlightNav, { passive: true });
+    });
+    </script>
+</body>
 </html>
