@@ -123,14 +123,21 @@ section {
     left: 0;
     right: 0;
     z-index: 100;
-    transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
 #navbar.scrolled {
     background: rgba(6, 11, 24, 0.85);
+    box-shadow: 0 1px 0 var(--border);
+}
+
+#navbar.scrolled::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 1px 0 var(--border);
+    z-index: -1;
 }
 
 .nav-inner {
