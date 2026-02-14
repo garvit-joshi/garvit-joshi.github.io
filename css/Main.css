@@ -304,6 +304,7 @@ section {
 .hero-content {
     position: relative;
     z-index: 1;
+    width: 100%;
     max-width: 700px;
     padding: 0 24px;
 }
@@ -848,6 +849,7 @@ footer {
     .nav-links {
         position: fixed;
         inset: 0;
+        z-index: 100;
         background: rgba(6, 11, 24, 0.97);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
