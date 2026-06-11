@@ -97,6 +97,27 @@
     }, { threshold: 0.4 });
     document.querySelectorAll('[data-count]').forEach(function (el) { counter.observe(el); });
 
+    /* ----- hero name: typed on load (skipped for reduced motion / no-js) ----- */
+    var typedEl = document.getElementById('typed-name');
+    if (typedEl && !reduced) {
+        var fullName = typedEl.textContent;
+        var nameH1 = typedEl.parentElement;
+        var caret = nameH1.querySelector('.caret');
+        /* reserve the final height so typing never shifts the layout */
+        nameH1.style.minHeight = nameH1.offsetHeight + 'px';
+        typedEl.textContent = '';
+        if (caret) caret.classList.add('typing');
+        var typedIdx = 0;
+        setTimeout(function typeNext() {
+            typedEl.textContent = fullName.slice(0, ++typedIdx);
+            if (typedIdx < fullName.length) {
+                setTimeout(typeNext, 62 + Math.random() * 75);
+            } else if (caret) {
+                setTimeout(function () { caret.classList.remove('typing'); }, 260);
+            }
+        }, 420);
+    }
+
     /* ----- live github data (all failures are silent) ----- */
     var GH_USER = 'garvit-joshi';
 

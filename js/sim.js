@@ -301,6 +301,7 @@
             ctx.fill();
         } else {
             var t = (now - s.servedAt) / 1100;
+            if (t < 0) t = 0;
             if (t > 1) return;
             ctx.strokeStyle = 'rgba(52, 211, 153, ' + (0.7 * (1 - t)) + ')';
             ctx.lineWidth = 1.6;

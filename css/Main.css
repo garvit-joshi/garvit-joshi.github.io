@@ -621,6 +621,12 @@ html.js .reveal.revealed {
     50% { opacity: 0; }
 }
 
+/* cursor stays solid while typing, blinks once done */
+.caret.typing {
+    animation: none;
+    opacity: 1;
+}
+
 .hero-role {
     font-family: var(--mono);
     font-size: clamp(0.85rem, 1.6vw, 1rem);
