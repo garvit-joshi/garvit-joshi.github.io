@@ -1251,6 +1251,116 @@ html.js .reveal.revealed {
     }
 }
 
+/* ---------- activity (live github) ---------- */
+.gh-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.gh-summary {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--ink-2);
+}
+
+.gh-heatmap {
+    display: none;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(7, 11px);
+    grid-auto-columns: 11px;
+    gap: 3px;
+    padding: 18px;
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(13, 21, 36, 0.6), rgba(10, 16, 28, 0.35));
+    overflow-x: auto;
+    margin-bottom: 22px;
+}
+
+.gh-heatmap.on {
+    display: grid;
+}
+
+.gh-heatmap i {
+    width: 11px;
+    height: 11px;
+    border-radius: 2px;
+    background: rgba(154, 168, 188, 0.08);
+}
+
+.gh-heatmap .lv1 { background: rgba(52, 211, 153, 0.25); }
+.gh-heatmap .lv2 { background: rgba(52, 211, 153, 0.45); }
+.gh-heatmap .lv3 { background: rgba(52, 211, 153, 0.7); }
+.gh-heatmap .lv4 { background: var(--green); }
+
+.gh-repos-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-3);
+    margin-bottom: 10px;
+}
+
+.gh-repos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+}
+
+.gh-repos:empty {
+    display: none;
+}
+
+.gh-repo {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gh-repo-name {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink);
+    word-break: break-word;
+}
+
+.gh-repo-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-3);
+}
+
+.gh-lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.gh-lang i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+@media (max-width: 640px) {
+    .gh-heatmap {
+        grid-template-rows: repeat(7, 9px);
+        grid-auto-columns: 9px;
+        padding: 12px;
+    }
+
+    .gh-heatmap i {
+        width: 9px;
+        height: 9px;
+    }
+}
+
 /* ---------- terminal ---------- */
 #terminal {
     position: fixed;

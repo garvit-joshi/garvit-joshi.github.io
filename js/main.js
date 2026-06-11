@@ -97,6 +97,79 @@
     }, { threshold: 0.4 });
     document.querySelectorAll('[data-count]').forEach(function (el) { counter.observe(el); });
 
+    /* ----- live github data (all failures are silent) ----- */
+    var GH_USER = 'garvit-joshi';
+
+    function escHTML(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function fetchJSON(url) {
+        return fetch(url).then(function (r) {
+            if (!r.ok) throw new Error(String(r.status));
+            return r.json();
+        });
+    }
+
+    fetchJSON('https://api.github.com/users/' + GH_USER).then(function (u) {
+        var el = document.getElementById('gh-repos');
+        if (el && typeof u.public_repos === 'number') {
+            el.setAttribute('data-count', String(u.public_repos));
+            counter.observe(el);
+        }
+    }).catch(function () {});
+
+    fetchJSON('https://github-contributions-api.jogruber.de/v4/' + GH_USER + '?y=last').then(function (d) {
+        var hm = document.getElementById('gh-heatmap');
+        var sum = document.getElementById('gh-summary');
+        if (!hm || !Array.isArray(d.contributions) || !d.contributions.length) throw new Error('shape');
+        var frag = document.createDocumentFragment();
+        d.contributions.forEach(function (c) {
+            var cell = document.createElement('i');
+            cell.className = 'lv' + (c.level || 0);
+            cell.title = c.count + ' contribution' + (c.count === 1 ? '' : 's') + ' on ' + c.date;
+            frag.appendChild(cell);
+        });
+        hm.appendChild(frag);
+        hm.classList.add('on');
+        if (sum && d.total && typeof d.total.lastYear === 'number') {
+            sum.textContent = d.total.lastYear + ' contributions in the last 12 months';
+        }
+    }).catch(function () {
+        var hm = document.getElementById('gh-heatmap');
+        var sum = document.getElementById('gh-summary');
+        if (hm) hm.hidden = true;
+        if (sum) sum.hidden = true;
+    });
+
+    fetchJSON('https://api.github.com/users/' + GH_USER + '/repos?per_page=100&sort=pushed').then(function (repos) {
+        var row = document.getElementById('gh-repos-row');
+        var label = document.getElementById('gh-repos-label');
+        if (!row || !Array.isArray(repos)) return;
+        var LANG = {
+            Java: '#b07219', Python: '#3572A5', 'C++': '#f34b7d', C: '#555555',
+            JavaScript: '#f1e05a', TypeScript: '#3178c6', HTML: '#e34c26',
+            CSS: '#663399', Shell: '#89e051', PHP: '#4F5D95', Go: '#00ADD8', Kotlin: '#A97BFF'
+        };
+        var picks = repos.filter(function (r) { return !r.fork; }).slice(0, 4);
+        if (!picks.length) return;
+        picks.forEach(function (r) {
+            var a = document.createElement('a');
+            a.className = 'gh-repo panel';
+            a.href = r.html_url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.innerHTML = '<i class="tick" aria-hidden="true"></i>' +
+                '<span class="gh-repo-name">' + escHTML(r.name) + '</span>' +
+                '<span class="gh-repo-meta">' +
+                (r.language ? '<span class="gh-lang"><i style="background:' + (LANG[r.language] || '#5d6b80') + '" aria-hidden="true"></i>' + escHTML(r.language) + '</span>' : '') +
+                '<span class="gh-stars">★ ' + (r.stargazers_count || 0) + '</span>' +
+                '</span>';
+            row.appendChild(a);
+        });
+        if (label) label.hidden = false;
+    }).catch(function () {});
+
     /* ----- terminal triggers ----- */
     var termChip = document.getElementById('term-chip');
     if (termChip) {
