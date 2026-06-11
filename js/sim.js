@@ -1,7 +1,9 @@
 /* sim.js — trip-optimizer: a miniature of the real job.
    Stops spawn on a jittered street grid, a greedy optimizer assigns each to
    the vehicle whose route ends nearest (graph distance), vehicles drive
-   Dijkstra shortest paths. Click the map to add a pickup. */
+   Dijkstra shortest paths. Click the map to add a pickup.
+   Rendering: single-accent "dispatch radar" — emerald fleet with comet
+   trails, warm-gold pickups, hairline streets, vignette depth. */
 (function () {
     'use strict';
 
@@ -16,7 +18,13 @@
     var PAD = 30;
     var SPEED = 46;            /* px/s */
     var MAX_WAITING = 10;
-    var HUES = ['#34d399', '#60a5fa', '#a78bfa', '#fbbf24', '#f472b6'];
+    var FLEET_SIZE = 5;
+    var TRAIL_MS = 2100;       /* comet trail lifetime */
+
+    /* palette */
+    var GREEN = '52, 211, 153';
+    var GOLD = '212, 175, 122';
+    var STREET = '154, 168, 188';
 
     var W = 0;
     var H = 0;
@@ -31,9 +39,9 @@
     var lastSpawn = 0;
     var spawnEvery = 2600;
     var lastFrame = 0;
-    var dashPhase = 0;
     var rafId = 0;
     var statsAt = 0;
+    var vignette = null;
 
     function dist(a, b) {
         var dx = a.x - b.x;
@@ -103,6 +111,9 @@
             }
         }
         depot = Math.floor(ROWS / 2) * COLS + Math.floor(COLS / 2);
+        vignette = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * 0.35, W / 2, H / 2, Math.max(W, H) * 0.72);
+        vignette.addColorStop(0, 'rgba(3, 5, 10, 0)');
+        vignette.addColorStop(1, 'rgba(3, 5, 10, 0.36)');
     }
 
     /* ----- dijkstra (n is tiny; O(n^2) is plenty) ----- */
@@ -145,15 +156,16 @@
 
     /* ----- fleet ----- */
     function makeVehicles() {
-        vehicles = HUES.map(function (hue) {
-            return {
-                hue: hue,
+        vehicles = [];
+        for (var i = 0; i < FLEET_SIZE; i++) {
+            vehicles.push({
                 node: depot,                       /* last node reached / route end basis */
                 pos: { x: nodes[depot].x, y: nodes[depot].y },
                 route: [],                         /* upcoming node ids */
+                trail: [],                         /* recent positions for the comet tail */
                 idleSince: 0
-            };
-        });
+            });
+        }
     }
 
     function routeEnd(v) {
@@ -209,6 +221,8 @@
     }
 
     function step(v, dt, now) {
+        /* age out the comet trail even when idle */
+        while (v.trail.length && now - v.trail[0].t > TRAIL_MS) v.trail.shift();
         if (!v.route.length) {
             if (!v.idleSince) v.idleSince = now;
             if (now - v.idleSince > 4200 && v.node !== depot) {
@@ -233,13 +247,17 @@
                 left = 0;
             }
         }
+        var last = v.trail[v.trail.length - 1];
+        if (!last || dist(last, v.pos) > 2.5) {
+            v.trail.push({ x: v.pos.x, y: v.pos.y, t: now });
+        }
     }
 
     /* ----- drawing ----- */
     function drawWorld() {
         var i, j;
         ctx.lineWidth = 1;
-        ctx.strokeStyle = 'rgba(154, 168, 188, 0.11)';
+        ctx.strokeStyle = 'rgba(' + STREET + ', 0.13)';
         ctx.beginPath();
         for (i = 0; i < nodes.length; i++) {
             for (j = 0; j < adj[i].length; j++) {
@@ -250,21 +268,24 @@
             }
         }
         ctx.stroke();
-        ctx.fillStyle = 'rgba(154, 168, 188, 0.22)';
+        ctx.fillStyle = 'rgba(' + STREET + ', 0.24)';
         for (i = 0; i < nodes.length; i++) {
             ctx.fillRect(nodes[i].x - 1, nodes[i].y - 1, 2, 2);
         }
+        ctx.fillStyle = vignette;
+        ctx.fillRect(0, 0, W, H);
     }
 
     function drawDepot(now) {
         var d = nodes[depot];
-        var ring = ((now / 1400) % 1);
-        ctx.strokeStyle = 'rgba(52, 211, 153, ' + (0.5 * (1 - ring)) + ')';
+        var breath = 0.5 + 0.5 * Math.sin(now / 900);
+        ctx.strokeStyle = 'rgba(' + GREEN + ', ' + (0.18 + breath * 0.2) + ')';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(d.x - 8, d.y - 8, 16, 16);
+        ctx.strokeStyle = 'rgba(' + GREEN + ', 0.9)';
         ctx.lineWidth = 1.4;
-        ctx.strokeRect(d.x - 5 - ring * 7, d.y - 5 - ring * 7, 10 + ring * 14, 10 + ring * 14);
-        ctx.fillStyle = '#34d399';
-        ctx.fillRect(d.x - 4, d.y - 4, 8, 8);
-        ctx.fillStyle = '#05080f';
+        ctx.strokeRect(d.x - 4, d.y - 4, 8, 8);
+        ctx.fillStyle = 'rgba(' + GREEN + ', ' + (0.25 + breath * 0.3) + ')';
         ctx.fillRect(d.x - 1.5, d.y - 1.5, 3, 3);
     }
 
@@ -275,63 +296,97 @@
         for (var i = 0; i < v.route.length; i++) {
             ctx.lineTo(nodes[v.route[i]].x, nodes[v.route[i]].y);
         }
-        ctx.strokeStyle = v.hue + '14';
-        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'rgba(' + GREEN + ', 0.3)';
+        ctx.lineWidth = 1;
         ctx.stroke();
-        ctx.strokeStyle = v.hue + '7a';
-        ctx.lineWidth = 1.5;
-        ctx.setLineDash([5, 5]);
-        ctx.lineDashOffset = -dashPhase;
+        /* destination marker: small cross-hair at route end */
+        var end = nodes[v.route[v.route.length - 1]];
+        ctx.strokeStyle = 'rgba(' + GREEN + ', 0.6)';
+        ctx.beginPath();
+        ctx.moveTo(end.x - 5, end.y);
+        ctx.lineTo(end.x + 5, end.y);
+        ctx.moveTo(end.x, end.y - 5);
+        ctx.lineTo(end.x, end.y + 5);
         ctx.stroke();
-        ctx.setLineDash([]);
+    }
+
+    function diamond(x, y, r) {
+        ctx.beginPath();
+        ctx.moveTo(x, y - r);
+        ctx.lineTo(x + r, y);
+        ctx.lineTo(x, y + r);
+        ctx.lineTo(x - r, y);
+        ctx.closePath();
     }
 
     function drawStop(s, now) {
         var p = nodes[s.node];
         if (s.state === 'waiting') {
-            var ph = ((now - s.born) / 1500) % 1;
-            ctx.strokeStyle = 'rgba(251, 191, 36, ' + (0.55 * (1 - ph)) + ')';
-            ctx.lineWidth = 1.2;
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, 3.5 + ph * 9, 0, Math.PI * 2);
+            var breath = 0.5 + 0.5 * Math.sin((now - s.born) / 380);
+            diamond(p.x, p.y, 7 + breath * 2.5);
+            ctx.strokeStyle = 'rgba(' + GOLD + ', ' + (0.2 + breath * 0.3) + ')';
+            ctx.lineWidth = 1;
             ctx.stroke();
-            ctx.fillStyle = '#fbbf24';
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, 3.2, 0, Math.PI * 2);
+            diamond(p.x, p.y, 3.8);
+            ctx.fillStyle = 'rgba(' + GOLD + ', 0.92)';
             ctx.fill();
         } else {
-            var t = (now - s.servedAt) / 1100;
+            var t = (now - s.servedAt) / 900;
             if (t < 0) t = 0;
             if (t > 1) return;
-            ctx.strokeStyle = 'rgba(52, 211, 153, ' + (0.7 * (1 - t)) + ')';
-            ctx.lineWidth = 1.6;
+            /* collapse: ring contracts onto the point and dies */
+            var r = 11 * (1 - t) + 2;
+            ctx.strokeStyle = 'rgba(' + GREEN + ', ' + (0.55 * (1 - t)) + ')';
+            ctx.lineWidth = 1.2;
             ctx.beginPath();
-            ctx.arc(p.x, p.y, 3 + t * 10, 0, Math.PI * 2);
+            ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
             ctx.stroke();
-            ctx.fillStyle = 'rgba(52, 211, 153, ' + (0.9 * (1 - t)) + ')';
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, 2.6, 0, Math.PI * 2);
-            ctx.fill();
         }
     }
 
     var BAYS = [[-12, -9], [12, -9], [-12, 9], [12, 9], [0, 14]];
 
-    function drawVehicle(v, idx) {
+    function vehicleXY(v, idx) {
         var x = v.pos.x;
         var y = v.pos.y;
-        /* parked at the depot: fan out into bays so the fleet is visible */
         if (!v.route.length && v.node === depot) {
             x += BAYS[idx % BAYS.length][0];
             y += BAYS[idx % BAYS.length][1];
         }
-        ctx.fillStyle = v.hue + '2e';
+        return { x: x, y: y };
+    }
+
+    function drawTrail(v, now) {
+        if (v.trail.length < 2) return;
+        for (var i = 1; i < v.trail.length; i++) {
+            var a = v.trail[i - 1];
+            var b = v.trail[i];
+            var age = (now - b.t) / TRAIL_MS;
+            if (age > 1) continue;
+            var alpha = 0.5 * (1 - age);
+            ctx.strokeStyle = 'rgba(' + GREEN + ', ' + alpha + ')';
+            ctx.lineWidth = 3 * (1 - age) + 0.5;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+        }
+    }
+
+    function drawVehicle(v, idx) {
+        var p = vehicleXY(v, idx);
+        /* layered glow, no shadowBlur */
+        ctx.fillStyle = 'rgba(' + GREEN + ', 0.09)';
         ctx.beginPath();
-        ctx.arc(x, y, 7.5, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, 10, 0, Math.PI * 2);
         ctx.fill();
-        ctx.fillStyle = v.hue;
+        ctx.fillStyle = 'rgba(' + GREEN + ', 0.22)';
         ctx.beginPath();
-        ctx.arc(x, y, 3.6, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#eafff5';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2.1, 0, Math.PI * 2);
         ctx.fill();
     }
 
@@ -343,9 +398,10 @@
         var alive = [];
         stops.forEach(function (s) {
             drawStop(s, now);
-            if (s.state === 'waiting' || now - s.servedAt < 1200) alive.push(s);
+            if (s.state === 'waiting' || now - s.servedAt < 1000) alive.push(s);
         });
         stops = alive;
+        vehicles.forEach(function (v) { drawTrail(v, now); });
         vehicles.forEach(drawVehicle);
     }
 
@@ -365,7 +421,6 @@
     function frame(now) {
         var dt = Math.min(now - lastFrame, 50);
         lastFrame = now;
-        dashPhase += dt * 0.012;
         if (now - lastSpawn > spawnEvery) {
             lastSpawn = now;
             spawnEvery = rand(2100, 3900);
@@ -409,7 +464,8 @@
         vehicles.forEach(function (v) {
             step(v, 2600, now);
         });
-        draw(now - 700);
+        draw(now);
+        statsAt = -1e9;       /* bypass the throttle: this is the only update */
         updateStats(now);
     }
 

@@ -101,10 +101,15 @@ Each JS file is an IIFE with no globals except a tiny `window.GJ` namespace for 
 - Stops spawn at random street nodes on a timer (cap ~10 unserved). Click/tap canvas →
   spawn stop at nearest node (hint text in footer: `click map to add a pickup`).
 - Assignment: each stop greedily assigned to the vehicle with cheapest route-end insertion;
-  vehicle path = Dijkstra shortest path through street graph; route polyline draws in
-  animated-dash style; vehicle dot travels the polyline at constant speed; served stops
-  flash then fade; vehicles return to depot when idle.
-- 4–5 vehicles, one route hue each. Telemetry derived from real sim state:
+  vehicle path = Dijkstra shortest path through street graph; vehicle dot travels the
+  polyline at constant speed; served stops collapse-flash then fade; vehicles return to
+  depot when idle.
+- Rendering (amended 2026-06-11 after Garvit's "more sexy / more mature" feedback):
+  single-accent "dispatch radar" — all vehicles emerald with white-hot cores and fading
+  comet trails, warm-gold diamond pickups with breathing rings, thin solid route lines
+  with crosshair destinations, hairline streets, radial vignette. No multi-hue fleet,
+  no dashed routes (original draft had 4–5 hues + animated dashes; rejected as toy-like).
+- 5 vehicles. Telemetry derived from real sim state:
   `vehicles`, `stops_served` (cumulative), `avg_route` (graph distance in blocks).
 - DPR-aware canvas, rAF loop paused on `document.hidden`; reduced-motion renders a single
   pre-solved static frame (routes drawn, no loop).
