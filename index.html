@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>document.documentElement.classList.add('js');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garvit Joshi — Software Engineer</title>
     <meta name="description" content="Software Engineer building routing and optimization systems at MoveInSync. Open source contributor to Spring Security, Spring Boot & Spring Cloud Gateway.">
@@ -137,7 +138,50 @@
                     <span class="sec-rule" aria-hidden="true"></span>
                     <span class="sec-cmt" aria-hidden="true">// hello, human</span>
                 </header>
-                <!-- content:about -->
+                <div class="about-grid">
+                    <div class="about-side reveal">
+                        <div class="avatar-frame panel">
+                            <i class="tick" aria-hidden="true"></i>
+                            <img src="https://avatars.githubusercontent.com/u/55401175?v=4" alt="Garvit Joshi" loading="lazy">
+                        </div>
+                        <ul class="about-facts">
+                            <li><span class="fact-k">btech.cs</span>lovely professional university · 2018–2022</li>
+                            <li><span class="fact-k">co-founded</span>aws cloud community — lpu</li>
+                        </ul>
+                    </div>
+                    <div class="about-main">
+                        <div class="about-prose reveal">
+                            <p>
+                                Right now I own the routing and trip-optimization services at
+                                <strong>MoveInSync</strong> — the systems that decide which vehicle
+                                picks up whom, in what order, for employee transport across multiple clients.
+                            </p>
+                            <p>
+                                Lately that has meant introducing <strong>Neo4j</strong> for geospatial
+                                geocode storage, building automated error-detection pipelines that surface
+                                issues before they become support tickets, and profiling the trip-assignment
+                                path to remove bottlenecks.
+                            </p>
+                            <p>
+                                Outside work I contribute to the <strong>Spring</strong> ecosystem — most
+                                recently a <code>StripContextPath</code> filter merged into Spring Cloud
+                                Gateway — and maintain <strong>Locksmith</strong>, a distributed-locking
+                                Spring Boot starter published on Maven Central.
+                            </p>
+                        </div>
+                        <div class="yaml-panel panel reveal">
+                            <i class="tick" aria-hidden="true"></i>
+                            <div class="yaml-head">garvit.yaml</div>
+                            <dl class="yaml-rows">
+                                <div class="yaml-row"><dt>location:</dt><dd>bengaluru, india</dd></div>
+                                <div class="yaml-row"><dt>role:</dt><dd>software engineer 2 @ moveinsync</dd></div>
+                                <div class="yaml-row"><dt>focus:</dt><dd>routing · distributed coordination · gateway internals</dd></div>
+                                <div class="yaml-row"><dt>oss:</dt><dd>spring-security · spring-boot · spring-cloud-gateway</dd></div>
+                                <div class="yaml-row"><dt>status:</dt><dd class="yaml-green">open_to_opportunities <span class="pulse" aria-hidden="true"></span></dd></div>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -150,7 +194,64 @@
                     <span class="sec-rule" aria-hidden="true"></span>
                     <span class="sec-cmt" aria-hidden="true">// 4+ years of routing</span>
                 </header>
-                <!-- content:experience -->
+                <div class="xp">
+                    <article class="xp-item reveal">
+                        <div class="xp-rail" aria-hidden="true"><span class="xp-dot active"></span><span class="xp-line"></span></div>
+                        <div class="xp-body">
+                            <header class="xp-head">
+                                <div>
+                                    <h3>Software Engineer 2</h3>
+                                    <p class="xp-co">moveinsync · bengaluru</p>
+                                </div>
+                                <span class="xp-date">2024.04 → now</span>
+                            </header>
+                            <ul>
+                                <li>Own routing and trip optimization services that allocate vehicles for employee transportation across multiple clients</li>
+                                <li>Introduced Neo4j for geocode storage, replacing relational lookups for geospatial route data</li>
+                                <li>Built automated error detection pipelines that surface issues before they become support tickets</li>
+                                <li>Profile and optimize routing algorithms; identified and fixed bottlenecks in the trip assignment path</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="xp-item reveal">
+                        <div class="xp-rail" aria-hidden="true"><span class="xp-dot"></span><span class="xp-line"></span></div>
+                        <div class="xp-body">
+                            <header class="xp-head">
+                                <div>
+                                    <h3>Software Engineer</h3>
+                                    <p class="xp-co">moveinsync · bengaluru</p>
+                                </div>
+                                <span class="xp-date">2022.05 → 2024.03</span>
+                            </header>
+                            <ul>
+                                <li>Built vehicle optimization algorithms that pack employees into trips based on routes, capacity, and time windows</li>
+                                <li>Designed employee scheduling system using genetic algorithms to minimize transportation cost</li>
+                                <li>Streamlined POI (point of interest) setup for client onboarding, replacing a multi-day manual process</li>
+                                <li>Created a Configuration Service allowing clients to customize routing parameters without code changes</li>
+                                <li>Added Redis caching layer to reduce database load on frequently queried route and schedule data</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="xp-item reveal">
+                        <div class="xp-rail" aria-hidden="true"><span class="xp-dot"></span></div>
+                        <div class="xp-body">
+                            <header class="xp-head">
+                                <div>
+                                    <h3>Software Engineer Intern</h3>
+                                    <p class="xp-co">moveinsync · bengaluru</p>
+                                </div>
+                                <span class="xp-date">2021.10 → 2022.04</span>
+                            </header>
+                            <ul>
+                                <li>Expanded UI test automation coverage and reduced manual regression testing effort</li>
+                                <li>Migrated data access layer to Spring Data JPA and introduced query-level caching</li>
+                                <li>Wrote deployment automation scripts to replace a manual multi-step deployment process</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -163,7 +264,43 @@
                     <span class="sec-rule" aria-hidden="true"></span>
                     <span class="sec-cmt" aria-hidden="true">// spring-projects</span>
                 </header>
-                <!-- content:opensource -->
+                <div class="oss-grid">
+                    <article class="oss-card panel reveal">
+                        <i class="tick" aria-hidden="true"></i>
+                        <p class="card-eyebrow">spring-projects/</p>
+                        <div class="card-title-row">
+                            <h3>spring-security</h3>
+                            <span class="badge-merged">merged ✓</span>
+                        </div>
+                        <p class="card-ref">PR #18235</p>
+                        <p class="card-desc">Fixed thread-safety bug in the Compromised Password Checker by creating a new SHA-1 MessageDigest per request instead of reusing a shared instance</p>
+                        <a href="https://github.com/spring-projects/spring-security/pull/18235" target="_blank" rel="noopener noreferrer" class="link-arrow">view pull request →</a>
+                    </article>
+
+                    <article class="oss-card panel reveal">
+                        <i class="tick" aria-hidden="true"></i>
+                        <p class="card-eyebrow">spring-projects/</p>
+                        <div class="card-title-row">
+                            <h3>spring-boot</h3>
+                            <span class="badge-merged">merged ✓</span>
+                        </div>
+                        <p class="card-ref">PR #48967</p>
+                        <p class="card-desc">Added truststore certificate exposure in the SSL info actuator endpoint; handled both PrivateKeyEntry and TrustedCertificateEntry types</p>
+                        <a href="https://github.com/spring-projects/spring-boot/pull/48967" target="_blank" rel="noopener noreferrer" class="link-arrow">view pull request →</a>
+                    </article>
+
+                    <article class="oss-card panel reveal">
+                        <i class="tick" aria-hidden="true"></i>
+                        <p class="card-eyebrow">spring-cloud/</p>
+                        <div class="card-title-row">
+                            <h3>spring-cloud-gateway</h3>
+                            <span class="badge-merged">merged ✓</span>
+                        </div>
+                        <p class="card-ref">PR #4089</p>
+                        <p class="card-desc">Added StripContextPath filter to fix incorrect path manipulation when servlet context-path is configured in WebMVC filters</p>
+                        <a href="https://github.com/spring-cloud/spring-cloud-gateway/pull/4089" target="_blank" rel="noopener noreferrer" class="link-arrow">view pull request →</a>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -176,7 +313,42 @@
                     <span class="sec-rule" aria-hidden="true"></span>
                     <span class="sec-cmt" aria-hidden="true">// things i ship</span>
                 </header>
-                <!-- content:projects -->
+                <div class="proj-grid">
+                    <article class="proj-card panel reveal">
+                        <i class="tick" aria-hidden="true"></i>
+                        <p class="card-eyebrow">in.riido / maven central</p>
+                        <h3>locksmith</h3>
+                        <div class="chip-row">
+                            <span>java 17+</span><span>spring boot</span><span>redis</span><span>redisson</span><span>aspectj</span>
+                        </div>
+                        <p class="card-desc">Spring Boot starter for Redis-based distributed coordination, published on Maven Central</p>
+                        <ul class="card-list">
+                            <li>Provides <code>@DistributedLock</code>, <code>@DistributedSemaphore</code>, and <code>@RateLimit</code> annotations</li>
+                            <li>Uses AspectJ for annotation-driven locking with configurable timeouts and key expressions via SpEL</li>
+                        </ul>
+                        <div class="card-links">
+                            <a href="https://github.com/riido-git/locksmith" target="_blank" rel="noopener noreferrer" class="link-arrow">github ↗</a>
+                            <a href="https://central.sonatype.com/artifact/in.riido/locksmith-spring-boot-starter" target="_blank" rel="noopener noreferrer" class="link-arrow">maven central ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="proj-card panel reveal">
+                        <i class="tick" aria-hidden="true"></i>
+                        <p class="card-eyebrow">student-flow/</p>
+                        <h3>vault</h3>
+                        <div class="chip-row">
+                            <span>java 21</span><span>spring boot</span><span>jooq</span><span>postgresql</span><span>kafka</span>
+                        </div>
+                        <p class="card-desc">Multi-tenant configuration management service with typed properties and audit history</p>
+                        <ul class="card-list">
+                            <li>Stores and serves typed configurations (string, int, boolean, list) per service and tenant</li>
+                            <li>Publishes configuration change events to Kafka for downstream audit and replay</li>
+                        </ul>
+                        <div class="card-links">
+                            <a href="https://github.com/student-flow/vault" target="_blank" rel="noopener noreferrer" class="link-arrow">github ↗</a>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -189,7 +361,43 @@
                     <span class="sec-rule" aria-hidden="true"></span>
                     <span class="sec-cmt" aria-hidden="true">// daily drivers</span>
                 </header>
-                <!-- content:skills -->
+                <div class="skills-grid">
+                    <div class="skill-card panel reveal">
+                        <i class="tick" aria-hidden="true"></i>
+                        <h3 class="skill-group">[languages]</h3>
+                        <div class="chip-row">
+                            <span>java 8–21</span><span>sql</span><span>python</span><span>javascript</span>
+                        </div>
+                    </div>
+                    <div class="skill-card panel reveal">
+                        <i class="tick" aria-hidden="true"></i>
+                        <h3 class="skill-group">[frameworks]</h3>
+                        <div class="chip-row">
+                            <span>spring boot</span><span>spring security</span><span>spring data jpa</span><span>spring webflux</span><span>jooq</span><span>jdbc</span><span>aspectj</span>
+                        </div>
+                    </div>
+                    <div class="skill-card panel reveal">
+                        <i class="tick" aria-hidden="true"></i>
+                        <h3 class="skill-group">[databases]</h3>
+                        <div class="chip-row">
+                            <span>postgresql</span><span>mysql</span><span>redis</span><span>neo4j</span><span>amazon redshift</span><span>dynamodb</span>
+                        </div>
+                    </div>
+                    <div class="skill-card panel reveal">
+                        <i class="tick" aria-hidden="true"></i>
+                        <h3 class="skill-group">[infrastructure]</h3>
+                        <div class="chip-row">
+                            <span>aws</span><span>docker</span><span>kubernetes</span><span>apache kafka</span><span>rabbitmq</span><span>ci/cd</span><span>git</span>
+                        </div>
+                    </div>
+                    <div class="skill-card panel reveal">
+                        <i class="tick" aria-hidden="true"></i>
+                        <h3 class="skill-group">[concepts]</h3>
+                        <div class="chip-row">
+                            <span>distributed systems</span><span>virtual threads</span><span>reactive programming</span><span>keycloak</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
