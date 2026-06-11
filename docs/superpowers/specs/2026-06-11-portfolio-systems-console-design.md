@@ -50,7 +50,9 @@ Each JS file is an IIFE with no globals except a tiny `window.GJ` namespace for 
   accent emerald `#34d399` family (existing brand); route hues: emerald, sky `#60a5fa`,
   violet `#a78bfa`, amber `#fbbf24` (sim + small accents only); text slate scale.
 - Faint graph-paper grid background (CSS gradient lines, very low contrast) on body.
-- Typography: Space Grotesk (display/body), JetBrains Mono (labels, dates, data, terminal).
+- Typography: Chakra Petch (display), IBM Plex Sans (body), JetBrains Mono (labels, dates,
+  data, terminal). (Amended at implementation time: Space Grotesk swapped out per
+  frontend-design guidance to avoid converging on overused display faces.)
 - Signature motif: cards/panels with 1px borders plus corner-bracket ticks (pseudo-elements).
 - Section headers numbered in mono: `01 / about` … with thin rule.
 - Motion: IntersectionObserver reveals, metric count-ups, sim animation.
