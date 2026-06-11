@@ -96,4 +96,27 @@
         });
     }, { threshold: 0.4 });
     document.querySelectorAll('[data-count]').forEach(function (el) { counter.observe(el); });
+
+    /* ----- terminal triggers ----- */
+    var termChip = document.getElementById('term-chip');
+    if (termChip) {
+        termChip.addEventListener('click', function () {
+            if (GJ.openTerminal) GJ.openTerminal();
+        });
+    }
+
+    document.addEventListener('keydown', function (e) {
+        var inField = /^(INPUT|TEXTAREA|SELECT)$/.test((e.target.tagName || '')) || e.target.isContentEditable;
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+            e.preventDefault();
+            if (GJ.openTerminal) GJ.openTerminal();
+        } else if (e.key === '`' && !inField && !e.metaKey && !e.ctrlKey && !e.altKey) {
+            e.preventDefault();
+            if (GJ.openTerminal) GJ.openTerminal();
+        }
+    });
+
+    if (/[?&]term=1/.test(location.search) && GJ.openTerminal) {
+        GJ.openTerminal();
+    }
 })();

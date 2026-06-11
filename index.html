@@ -438,7 +438,23 @@
         </div>
     </footer>
 
-    <!-- terminal:mount -->
+    <!-- Terminal overlay (⌘K) -->
+    <div id="terminal" role="dialog" aria-modal="true" aria-label="Terminal" hidden>
+        <div class="term-backdrop" data-term-close></div>
+        <div class="term-window panel">
+            <i class="tick" aria-hidden="true"></i>
+            <div class="term-bar">
+                <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="term-title">garvit@portfolio: ~</span>
+                <button class="term-close" data-term-close aria-label="Close terminal">✕</button>
+            </div>
+            <div id="term-out"></div>
+            <div class="term-input-row">
+                <label for="term-in" class="term-ps1">garvit@portfolio:~$</label>
+                <input id="term-in" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input">
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
